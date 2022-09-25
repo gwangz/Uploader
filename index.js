@@ -7,6 +7,8 @@ httpServer.on("request", (req, res) =>{
     if (req.url === "/")
     res.end(fs.readFileSync("index.html"));
 
+
+//idempotency
     if (req.url === "/upload"){
         const fileName = req.headers["file-name"];
         req.on("data", chunk =>{
